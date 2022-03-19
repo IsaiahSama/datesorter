@@ -28,7 +28,7 @@ class Database:
                 EVENT TEXT)""")
             db.commit()
 
-    def getAllEntries(self) -> None | list[Row]:
+    def getAllEntries(self) -> "None | list[Row]":
         """Used to retrieve all of the entires from the database.
         
         Returned format (if exists) is (ID, Date, event)
