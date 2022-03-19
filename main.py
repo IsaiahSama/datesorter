@@ -28,7 +28,7 @@ class Main:
     def menu(self):
         """Contains the main menu for the program."""
         choices = {"1": self.add_value, "2": self.get_values}
-        menu_choices = {"1": "Add a new event and date", 2:"Get the sorted results"}
+        menu_choices = {"1": "Add a new event and date", "2":"Get the sorted results"}
         print("How may we help you today?")
         choices[self.validate.validateChoice(menu_choices)]()
 
