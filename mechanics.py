@@ -61,7 +61,8 @@ class InputValidation:
         
     Methods:
         validateInt(prompt:str): Used to ensure that the user enters a 4 digit integer
-        validateChoice(choices:dict): Used to ensure that the user enters a valid choice"""
+        validateChoice(choices:dict): Used to ensure that the user enters a valid choice.
+        """
 
     def __init__(self):
         pass 
@@ -77,7 +78,7 @@ class InputValidation:
 
         valid = 0
         while not valid:
-            result = input(prompt + ": ")
+            result = input(prompt + ": ").strip()
             if not result.isnumeric(): print("Your response must be numeric, not", result)
             elif len(result != 4): print("Your response must be no more or less than 4 digits, not", len(result), "digits")
             else: valid = 1
@@ -99,7 +100,7 @@ class InputValidation:
             for k, v in choices.items():
                 print(f"For {v} please select {k}")
             
-            result = input(": ")
+            result = input(": ").strip()
             if result.lower() not in choices.keys(): print("Invalid option")
             else: invalid = 0
         
