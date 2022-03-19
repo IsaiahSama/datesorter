@@ -60,7 +60,8 @@ class InputValidation:
         None
         
     Methods:
-        validateInt(prompt:str): Used to ensure that the user enters a 4 digit integer"""
+        validateInt(prompt:str): Used to ensure that the user enters a 4 digit integer
+        validateChoice(choices:dict): Used to ensure that the user enters a valid choice"""
 
     def __init__(self):
         pass 
@@ -73,7 +74,7 @@ class InputValidation:
             
         Returns:
             int"""
-            
+
         valid = 0
         while not valid:
             result = input(prompt + ": ")
@@ -82,3 +83,24 @@ class InputValidation:
             else: valid = 1
 
         return int(result)
+
+    def validateChoice(self, choices:dict) -> str:
+        """Validates a user's choice
+        
+        Args:
+            choices (dict): A dictionary mapping indexes to worded values. Keys should be all lowercase
+            
+        Returns:
+            str"""
+
+        invalid = 1
+        while invalid:
+            print("Here are your menu choices:")
+            for k, v in choices.items():
+                print(f"For {v} please select {k}")
+            
+            result = input(": ")
+            if result.lower() not in choices.keys(): print("Invalid option")
+            else: invalid = 0
+        
+        return result.lower()
