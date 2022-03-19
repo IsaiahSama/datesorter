@@ -28,7 +28,7 @@ class Main:
     def menu(self):
         """Contains the main menu for the program."""
         choices = {"1": self.add_value, "2": self.get_values}
-        menu_choices = {"1": "Add a new event and date", "2":"Get the sorted results"}
+        menu_choices = {"1": "Add a new event and year", "2":"Get the sorted results"}
         print("How may we help you today?")
         choices[self.validate.validateChoice(menu_choices)]()
 
@@ -37,8 +37,8 @@ class Main:
         
         Returns:
             bool"""
-        date_ = self.validate.validateInt("Enter the date for the event")
-        event_ = input("Enter the event that happened on that date.\n: ")
+        date_ = self.validate.validateInt("Enter the year for the event")
+        event_ = input("Enter the event that happened in that year.\n: ")
         print("Confirming that this information is correct:")
         print("On", date_, event_, "occurred.")
         result = int(self.validate.validateChoice({"0": "Confirmation", "1":"Canceling"}))
