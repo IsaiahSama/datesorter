@@ -41,8 +41,8 @@ class Main:
         event_ = input("Enter the event that happened on that date.\n: ")
         print("Confirming that this information is correct:")
         print("On", date_, event_, "occurred.")
-        result = int(self.validate.validateChoice({"0": "Confirm", "1":"Cancel"}))
-        if not result:
+        result = int(self.validate.validateChoice({"0": "Confirmation", "1":"Canceling"}))
+        if  result:
             print("Cancelling")
             return False
 
