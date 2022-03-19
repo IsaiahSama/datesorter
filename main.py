@@ -60,8 +60,7 @@ class Main:
         values.sort(key=lambda x: x[1])
         with open("sorted.txt", "w") as fp:
             for tup in values:
-                for _, date_, event_ in tup:
-                    fp.write(f"{date_}: {event_}\n")
+                fp.write(f"{tup[1]}: {tup[2]}\n")
 
         print("Your result has been stored in the folder in the file sorted.txt")
 
