@@ -78,8 +78,9 @@ class InputValidation:
         valid = 0
         while not valid:
             result = input(prompt + ": ").strip()
+            print(result)
             if not result.isnumeric(): print("Your response must be numeric, not", result)
-            elif len(result != 4): print("Your response must be no more or less than 4 digits, not", len(result), "digits")
+            elif len(result) != 4: print("Your response must be no more or less than 4 digits, not", len(result), "digits")
             else: valid = 1
 
         return int(result)
