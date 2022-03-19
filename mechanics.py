@@ -1,6 +1,5 @@
 """Handles all of the mechanics for the date manager"""
 
-from ctypes import Union
 from sqlite3 import Row, connect
 
 DBNAME = "mydatedb.sqlite3"
@@ -24,12 +23,12 @@ class Database:
         """Method used to create the database."""
         with connect(DBNAME) as db:
             db.execute("""CREATE TABLE IF NOT EXISTS DATETABLE (
-                ID INTEGER PRIMARY KEY UNIQUE AUTOINCREMENT,
+                ID INTEGER PRIMARY KEY UNIQUE,
                 DATE INTEGER,
                 EVENT TEXT)""")
             db.commit()
 
-    def getAllEntries(self) -> Union[None | list[Row]]:
+    def getAllEntries(self) -> None | list[Row]:
         """Used to retrieve all of the entires from the database.
         
         Returned format (if exists) is (ID, Date, event)
