@@ -23,7 +23,14 @@ class Main:
     def main(self):
         """Contains the main loop of the program"""
         while True:
-            self.menu()
+            try:
+                self.menu()
+            except KeyboardInterrupt:
+                print("Would you like to quit the program or return to the menu?")
+                resp = self.validate.validateChoice({"0": "Quit", "1": "Return to menu"})
+                if not int(resp):
+                    print("Good bye.")
+                    raise SystemExit
             print("\n")
 
     def menu(self):
@@ -37,18 +44,19 @@ class Main:
         """Used to add a new value to the database.
         
         Returns:
-            bool"""
-        date_ = self.validate.validateInt("Enter the year for the event")
-        event_ = input("Enter the event that happened in that year.\n: ")
-        print("Confirming that this information is correct:")
-        print("On", date_, event_, "occurred.")
-        result = int(self.validate.validateChoice({"0": "Confirmation", "1":"Canceling"}))
-        if  result:
-            print("Cancelling")
-            return False
+            False if user chooses to cancel"""
+        while True:
+            date_ = self.validate.validateInt("Enter the year for the event. Press ctrl + c at any time to quit and return to menu")
+            event_ = input("Enter the event that happened in that year.\n: ")
+            print("Confirming that this information is correct:")
+            print()
+            print("On", date_, event_, "occurred.")
+            result = int(self.validate.validateChoice({"0": "Confirmation", "1":"Canceling"}))
+            if result:
+                print("Cancelling")
+                return False
 
-        self.db.setEntry(date_, event_)
-        return True
+            self.db.setEntry(date_, event_)
 
     def get_values(self):
         """Method used to get all of the values from the database, sort them, and store them in a txt file"""

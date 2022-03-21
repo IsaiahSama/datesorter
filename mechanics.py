@@ -96,6 +96,7 @@ class InputValidation:
 
         invalid = 1
         while invalid:
+            print()
             print("Here are your menu choices:")
             for k, v in choices.items():
                 print(f"For {v} please select {k}")
