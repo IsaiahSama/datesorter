@@ -46,7 +46,7 @@ class Main:
         Returns:
             False if user chooses to cancel"""
         while True:
-            date_ = self.validate.validateInt("Enter the year for the event.\nPress ctrl + c at any time to quit and return to menu")
+            date_ = self.validate.validateInt("Press ctrl + c at any time to quit and return to menu\nEnter the year for the event")
             event_ = input("Enter the event that happened in that year.\n: ")
             print("Confirming that this information is correct:")
             print()
