@@ -24,6 +24,7 @@ class Main:
         """Contains the main loop of the program"""
         while True:
             self.menu()
+            print("\n")
 
     def menu(self):
         """Contains the main menu for the program."""
