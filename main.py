@@ -1,6 +1,8 @@
 # Main file for the dates
 
 from mechanics import Database, InputValidation
+from time import sleep
+from os import system
 
 
 class Main:
@@ -23,6 +25,7 @@ class Main:
     def main(self):
         """Contains the main loop of the program"""
         while True:
+            system("CLS")
             try:
                 self.menu()
             except KeyboardInterrupt:
@@ -32,6 +35,7 @@ class Main:
                     print("Good bye.")
                     raise SystemExit
             print("\n")
+            sleep(2)
 
     def menu(self):
         """Contains the main menu for the program."""
